@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ReactJS</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser.js"></script>
+</head>
+
+<body>
+
+    <div id="content"></div>
+
+    <script type="text/babel">
+
+        var CONTACTS = [
+            {
+                id: 1,
+                name: 'Victor',
+                phoneNumber: '+9725468878',
+                image: 'https://media.giphy.com/media/xUOxf5Clvu7wX5wbGU/giphy.gif'
+            }, {
+                id: 2,
+                name: 'Vanessa',
+                phoneNumber: '+9725468898',
+                image: 'https://media.giphy.com/media/xULW8ipASRPBBibH1K/giphy.gif'
+            }, {
+                id: 3,
+                name: 'Lisij',
+                phoneNumber: '+9725468879',
+                image: 'https://media.giphy.com/media/xT0xeNOgQVfrNNAtz2/giphy.gif'
+            }
+        ];
+
+
+        // var HelloWorld = React.createClass({
+        //     render: function() {
+        //         return <h2> My name is {this.props.name} and I love {this.props.todo} </h2>;
+        //     }
+        // });
+
+        var Contact = React.createClass({
+            render: function() {
+                return (
+                    <li>
+                        <div> {this.props.name} </div>
+                        <div> {this.props.phoneNumber} </div>
+                        <img src={this.props.image} width='60px' height='60px' />
+                    </li>
+                );
+            }
+        })
+
+        
+        var ContactList = React.createClass({
+            render: function() {
+                return (
+                    <div>
+                        <ul>
+                            {
+                                CONTACTS.map(function(el) {
+                                    return <Contact 
+                                        key={el.id} 
+                                        name={el.name} 
+                                        phoneNumber={el.phoneNumber} 
+                                        image={el.image}
+                                    />;
+                                })
+                            }
+                        </ul>
+                    </div>
+
+                );
+            }
+        });
+
+        // ReactDOM.render(
+        // <div>
+        //     <HelloWorld name="Nastya" todo="to play Poker" />
+        //     <HelloWorld name="Olya" todo="to play Soccer" />
+        //     <HelloWorld name="Sveta" todo="to play Baseball" />
+        // </div>,
+        // document.getElementById("content")
+        // ); 
+
+        ReactDOM.render(
+            <ContactList />,
+            document.getElementById("content")
+        ); 
+
+    </script>
+
+</body>
+</html>
