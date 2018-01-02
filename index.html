@@ -7,6 +7,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react-dom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -20,17 +21,32 @@
                 id: 1,
                 name: 'Victor',
                 phoneNumber: '+9725468878',
-                image: 'https://media.giphy.com/media/xUOxf5Clvu7wX5wbGU/giphy.gif'
+                image: 'http://www.knowyourquotes.com/images/profiles/2931/thumb1/2.jpg'
+                // image: 'https://media.giphy.com/media/xUOxf5Clvu7wX5wbGU/giphy.gif'
             }, {
                 id: 2,
                 name: 'Vanessa',
                 phoneNumber: '+9725468898',
-                image: 'https://media.giphy.com/media/xULW8ipASRPBBibH1K/giphy.gif'
+                image: 'https://i.cbc.ca/1.3972742.1486584385!/fileImage/httpImage/image.jpg_gen/derivatives/square_140/laura-salvas.jpg?imwidth=40'
+                // image: 'https://media.giphy.com/media/xULW8ipASRPBBibH1K/giphy.gif'
             }, {
                 id: 3,
-                name: 'Lisij',
+                name: 'Vova',
                 phoneNumber: '+9725468879',
-                image: 'https://media.giphy.com/media/xT0xeNOgQVfrNNAtz2/giphy.gif'
+                image: 'http://www.knowyourquotes.com/images/profiles/2382/thumb1/1.jpg'
+                // image: 'https://media.giphy.com/media/xT0xeNOgQVfrNNAtz2/giphy.gif'
+            }, {
+                id: 4,
+                name: 'Leo',
+                phoneNumber: '+9725468879',
+                image: 'http://www.knowyourquotes.com/images/profiles/2382/thumb1/1.jpg'
+                // image: 'https://media.giphy.com/media/xT0xeNOgQVfrNNAtz2/giphy.gif'
+            }, {
+                id: 5,
+                name: 'Caprio',
+                phoneNumber: '+9725468879',
+                image: 'http://www.knowyourquotes.com/images/profiles/2382/thumb1/1.jpg'
+                // image: 'https://media.giphy.com/media/xT0xeNOgQVfrNNAtz2/giphy.gif'
             }
         ];
 
@@ -44,20 +60,27 @@
         var Contact = React.createClass({
             render: function() {
                 return (
-                    <li>
-                        <div> {this.props.name} </div>
-                        <div> {this.props.phoneNumber} </div>
-                        <img src={this.props.image} width='60px' height='60px' />
+                    <li className="contact">
+                        <div className="contact-details">
+                            <div className="contact-name"> {this.props.name} </div>
+                            <div className="contact-phoneNumber"> {this.props.phoneNumber} </div>
+                        </div>
+                        <img className="contact-image" src={this.props.image} width='60px' height='60px'/>
                     </li>
                 );
             }
-        })
-
+        });
         
         var ContactList = React.createClass({
+
+            handleSearch: function (event) {
+                console.log(event);
+            },
+
             render: function() {
                 return (
                     <div>
+                        <input type="text" className="contact-search" onChange={this.handleSearch} />   
                         <ul>
                             {
                                 CONTACTS.map(function(el) {

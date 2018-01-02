@@ -1,0 +1,32 @@
+.contact-search {
+    border-radius: 10%;
+    margin: 5px;
+    border-color: rgba(37, 36, 36, 0.233);
+    padding: 50px center;
+}
+
+.contact-image {
+    border-radius: 50%;
+    margin: 5px;
+}
+
+.contact-name {
+    font: 700;
+    font-size: 1.6em;
+    margin: 5px; 
+}
+
+.contact-phoneNumber {
+    font: 300;
+    font-size: 1.1em;
+    color: rgba(37, 36, 36, 0.623);
+    margin: 5px;
+    
+}
+
+.contact-details {
+    border-bottom: 1px solid rgba(37, 36, 36, 0.233);
+    width: 200px;
+    height: 60px;
+    margin: 5px;
+}
